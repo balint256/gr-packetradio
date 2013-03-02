@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+##AX.25 Decoder
+###################################################
+ -->
+<block>
+	<name>AX.25 Framer</name>
+	<key>ax25_hdlc_framer_b</key>
+	<category>AX.25</category>
+	<import>from gnuradio import packetradio</import>
+	<make>packetradio.hdlc_framer($(id)_msgq_out, $mode)</make>
+
+	<param>
+		<name>LFSR Descrambler</name>
+		<key>mode</key>
+		<value>False</value>
+		<type>bool</type>
+		<option>
+				<name>Off</name>
+				<key>False</key>
+		</option>
+		<option>
+				<name>On</name>
+				<key>True</key>
+		</option>
+	</param>
+	
+	<sink>
+		<name>in</name>
+		<type>byte</type>
+	</sink>
+
+	<source>
+		<name>out</name>
+		<type>msg</type>
+	</source>
+</block>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+##AX.25 Decoder
+###################################################
+ -->
+<block>
+	<name>AX.25 Frame Printer</name>
+	<key>ax25_print_frame</key>
+	<category>AX.25</category>
+
+	<import>from gnuradio import packetradio</import>
+
+	<make>packetradio.queue_watcher_thread($(id)_msgq_in)</make>
+	
+	<sink>
+		<name>in</name>
+		<type>msg</type>
+	</sink>
+</block>
+
